@@ -1,0 +1,488 @@
+@import "colors";
+@import "animation";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	scroll-padding-top: 82px;
+}
+
+body {
+	position: relative;
+	font-family: "Montserrat", sans-serif;
+	background-color: $bg-color;
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.underline {
+	margin: 0 auto 40px;
+	width: 60px;
+	height: 4px;
+	background-color: $main-color;
+}
+
+.highlighted-text {
+	color: $main-color;
+}
+
+.shadow-bg {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+nav {
+	text-transform: uppercase;
+	transition: background-color 0.6s;
+	z-index: 1;
+
+	.nav-color,
+	i {
+		color: $white;
+	}
+
+	.nav-color:hover {
+		color: $main-color;
+	}
+
+	.fa-bars {
+		padding: 10px;
+	}
+
+	.navbar-brand {
+		font-weight: bold;
+	}
+
+	.nav-link.active.nav-color {
+		color: $main-color;
+	}
+}
+header {
+	color: $white;
+
+	h1 {
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 15px;
+	}
+
+	.hero-img {
+		position: relative;
+		height: 100vh;
+		background-image: url("../img/header-mini.jpg");
+		background-position: center;
+		background-attachment: fixed;
+		background-size: cover;
+		z-index: 0;
+	}
+
+	.hero-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		padding: 10px;
+		text-align: center;
+		z-index: 5;
+	}
+
+	.hero-shadow {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-image: $header-gradient;
+		z-index: -10;
+	}
+
+	.btn-outline-light {
+		text-transform: uppercase;
+	}
+
+	.fa-chevron-down {
+		position: absolute;
+		bottom: 20px;
+		width: 100%;
+		text-align: center;
+		font-size: 30px;
+		color: $white;
+	}
+}
+
+.aboutus {
+	i {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+
+	.aboutus-card-title {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	.aboutus-card-text {
+		font-size: 14px;
+	}
+}
+
+.dreams {
+	position: relative;
+	background-color: $white;
+	overflow: hidden;
+
+	.dream {
+		display: flex;
+		flex-direction: column;
+		margin: 30px 0;
+
+		.img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.text {
+			font-size: 14px;
+		}
+	}
+}
+
+.peh {
+	.peh-card {
+		position: relative;
+		margin: 20px;
+		height: 450px;
+		color: $white;
+		text-align: center;
+		perspective: 1000px;
+
+		.card-img {
+			padding: 20px;
+			height: 100%;
+			border-radius: 8px;
+			transition: transform 1s, opacity 1s;
+			background-size: cover;
+			background-position: center;
+
+			.img-info {
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				font-size: 18px;
+				i {
+					margin-right: 3px;
+				}
+			}
+		}
+
+		.first {
+			background-image: $header-gradient, url("../img/proteins.png");
+		}
+
+		.second {
+			background-image: $header-gradient, url("../img/emolients.png");
+		}
+
+		.third {
+			background-image: $header-gradient, url("../img/humectants.png");
+		}
+
+		.card-info {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-image: $header-gradient;
+			border-radius: 8px;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: transform 1s, opacity 1s;
+
+			.info-title {
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.info-text {
+				padding: 20px;
+			}
+		}
+	}
+
+	.peh-card:hover {
+		.card-img {
+			transform: rotateY(-180deg);
+			opacity: 0;
+		}
+
+		.card-info {
+			transform: rotateY(0);
+			opacity: 1;
+		}
+	}
+}
+
+.offers {
+	.offer-box {
+		margin: 20px 10px;
+		padding: 30px;
+		background-color: $white;
+		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+
+		h3 {
+			text-transform: uppercase;
+			color: $main-color;
+		}
+
+		button {
+			position: relative;
+			padding: 10px 20px;
+			text-transform: uppercase;
+			overflow: hidden;
+			border: none;
+		}
+
+		button::before {
+			position: absolute;
+			transition: 0.5s;
+			content: "";
+			top: -30px;
+			left: -130px;
+			height: 160%;
+			width: 100px;
+			background-image: linear-gradient(
+				-90deg,
+				rgba(255, 255, 255, 0.3),
+				rgba(255, 255, 255, 0)
+			);
+			transform: rotate(20deg);
+		}
+
+		button:hover::before {
+			left: 130%;
+		}
+
+		.btn-highlight {
+			background-color: $main-color;
+		}
+
+		.offer-tag {
+			font-size: 30px;
+			font-weight: bold;
+		}
+	}
+
+	.offer-info {
+		margin-top: 30px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.achievements {
+	i {
+		padding: 10px;
+		font-size: 48px;
+		color: $white;
+		text-shadow: 0px 0px 5px black;
+	}
+	.achievements-list {
+		padding: 20px 0;
+	}
+
+	.achiev-number {
+		font-size: 22px;
+	}
+
+	.achiev-text {
+		font-size: 13px;
+		text-transform: uppercase;
+	}
+}
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.form-item {
+		margin: 10px;
+		input,
+		textarea {
+			border: 1px solid $light-gray;
+			border-radius: 8px;
+		}
+	}
+
+	.btn-box {
+		display: flex;
+		justify-content: space-evenly;
+		.contact-btn {
+			text-transform: uppercase;
+			padding: 5px 10px;
+			margin: 5px 10px;
+			border: none;
+			border-radius: 8px;
+			color: $white;
+		}
+		.btn-highlight {
+			background-color: $main-color;
+		}
+	}
+}
+
+footer {
+	.footer-box {
+		display: flex;
+		align-items: center;
+		color: $white;
+
+		.footer-item {
+			margin: 30px 0;
+
+			h3 {
+				margin-bottom: 15px;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+			}
+
+			.social-media {
+				font-size: 26px;
+				a {
+					padding: 10px;
+					color: $white;
+					transition: color 0.3s;
+				}
+
+				a:hover {
+					color: $light-gray;
+				}
+			}
+		}
+	}
+}
+
+//MEDIA
+
+@media (min-width: 375px) {
+	header {
+		h1 {
+			font-size: 36px;
+		}
+
+		p {
+			font-size: 16px;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.dreams {
+		.dream {
+			flex-direction: row;
+			justify-content: space-between;
+
+			.box-text {
+				width: 55%;
+			}
+
+			.text-right {
+				text-align: right;
+			}
+			.box-img {
+				width: 40%;
+
+				.img {
+					margin-bottom: 0;
+					max-height: 300px;
+				}
+			}
+			.img-right {
+				order: 1;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	header {
+		h1 {
+			font-size: 42px;
+		}
+
+		p {
+			font-size: 20px;
+		}
+	}
+
+	.peh {
+		.cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.peh-card {
+			margin: 10px;
+			width: 45%;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	nav {
+		height: 82px;
+	}
+
+	.dreams {
+		.dream {
+			.title {
+				margin-bottom: 20px;
+			}
+			.text {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.peh {
+		.peh-card {
+			height: 500px;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.peh {
+		.peh-card {
+			width: 30%;
+			height: 550px;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	header {
+		.hero-img {
+			background-image: url("../img/header-big.jpg");
+		}
+	}
+}
